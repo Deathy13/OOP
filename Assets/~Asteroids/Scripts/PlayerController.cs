@@ -21,7 +21,15 @@ namespace Asteroids
 
 
             // Rotate in correct direction
-            movement.Rotate(inputH);
+            //movement.Rotate(inputH);
+            if(inputH > 0)
+            {
+                movement.RotateLeft();
+            }
+            if(inputH < 0)
+            {
+                movement.RotateRight();
+            }
             
         }
     }
