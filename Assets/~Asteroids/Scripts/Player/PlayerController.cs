@@ -40,7 +40,7 @@ namespace Asteroids
         {
 
             // if Space is pressed
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKey(KeyCode.Space))
             {
                 shoot.Fire(transform.up);
             }

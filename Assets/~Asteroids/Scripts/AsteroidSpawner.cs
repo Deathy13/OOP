@@ -13,7 +13,8 @@ namespace Asteroids
         private Bounds camBounds;
         private float camwidth;
         private float camHeight;
-
+        public float minSpeed = 1f;
+        public float maxSpeed = 5f;
        /* void OnTriggerEnter2D(Collider2D col)
         {
             if(col.name.Contains("player"))
@@ -77,7 +78,15 @@ namespace Asteroids
         }
         public void SpawnAtPostion(Vector3 position)
         {
-            Instantiate(prefabs[6], position, Quaternion.identity);
+            int randindext = Random.Range(0, prefabs.Length);
+            GameObject astroid = Instantiate(prefabs[randindext],transform.position,transform.rotation);
+            astroid.transform.position = position;
+
+            Rigidbody2D rigid = astroid.GetComponent<Rigidbody2D>();
+
+            float randomSpeed = Random.Range(minSpeed, maxSpeed);
+            Vector2 randomDir = Random.onUnitSphere;
+            rigid.AddForce(randomDir * randomSpeed, ForceMode2D.Impulse);
         }
     }
     
