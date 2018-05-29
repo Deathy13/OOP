@@ -91,5 +91,16 @@ namespace Minesweeper
             }
             
         }
+        void  FFuncover(int x,int y,bool [,] visited)
+        {
+            if(x >= 0 && y >= 0 && x < width && y < height )
+            {
+                if (visited[x, y])
+                    return;
+                Tile tile = tiles[x, y];
+                int adjacentmine = GetAdjacentMineCount(tile);
+                tile.Reveal(adjacentmine);
+            }
+        }
     }
 }
