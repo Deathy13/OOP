@@ -20,7 +20,7 @@ namespace Minesweeper
         }
         void Start()
         {
-            isMine = Random.value < 0.99f;
+            isMine = Random.value < 0.09f;
         }
         public void Reveal(int adjacentMine, int mineState = 0)
         {
